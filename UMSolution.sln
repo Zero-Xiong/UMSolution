@@ -3,7 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UMWebApi", "UMWebApi\UMWebApi.csproj", "{94C9B998-DE86-41AE-9543-6BF71F91C4C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UMDataAccess", "UMDataAccess\UMDataAccess.csproj", "{97C2DF9F-8180-4226-BFD0-005255692291}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UMDomainEntity", "UMDomainEntity\UMDomainEntity.csproj", "{14A31D6C-5EA0-4263-8236-23A90BA50CAF}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{94C9B998-DE86-41AE-9543-6BF71F91C4C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94C9B998-DE86-41AE-9543-6BF71F91C4C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94C9B998-DE86-41AE-9543-6BF71F91C4C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94C9B998-DE86-41AE-9543-6BF71F91C4C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97C2DF9F-8180-4226-BFD0-005255692291}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97C2DF9F-8180-4226-BFD0-005255692291}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97C2DF9F-8180-4226-BFD0-005255692291}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97C2DF9F-8180-4226-BFD0-005255692291}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14A31D6C-5EA0-4263-8236-23A90BA50CAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14A31D6C-5EA0-4263-8236-23A90BA50CAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14A31D6C-5EA0-4263-8236-23A90BA50CAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14A31D6C-5EA0-4263-8236-23A90BA50CAF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
