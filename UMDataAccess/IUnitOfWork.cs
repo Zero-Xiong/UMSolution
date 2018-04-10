@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace UMDataAccess
 {
-    public class Class1
+    public interface IUnitOfWork : IDisposable
     {
+        void Commit();
     }
 }
