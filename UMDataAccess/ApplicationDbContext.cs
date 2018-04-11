@@ -25,14 +25,10 @@ namespace UMDataAccess
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
-            modelBuilder.Entity<User>();
-
-            modelBuilder.Entity<Role>();
-
-            modelBuilder.Entity<UserRole>();
-
-            modelBuilder.Entity<UserToken>();
-
+            modelBuilder.Configurations.Add(new EntityConfigurationUser());
+            modelBuilder.Configurations.Add(new EntityConfigurationRole());
+            modelBuilder.Configurations.Add(new EntityConfigurationUserRole());
+            modelBuilder.Configurations.Add(new EntityConfigurationUserToken());
 
             base.OnModelCreating(modelBuilder);
         }

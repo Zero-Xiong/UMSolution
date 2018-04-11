@@ -2,7 +2,7 @@
 using System.Data.Entity;
 using UMDomainEntity;
 
-namespace UMDataAccess.Repositories
+namespace UMDataAccess
 {
     public class UserRepository : Repository<User, Guid>, IUserRepository
     {

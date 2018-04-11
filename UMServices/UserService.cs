@@ -12,16 +12,13 @@ namespace UMServices
     public class UserService : IUserService
     {
         private readonly IUserRepository userRepository;
-        private readonly IUnitOfWork unitOfWork;
         private readonly ISecurityService securityService;
 
 
         public UserService(IUserRepository _userRepository,
-            IUnitOfWork _unitOfWork,
             ISecurityService _securityService)
         {
             userRepository = _userRepository;
-            unitOfWork = _unitOfWork;
             securityService = _securityService;
         }
 

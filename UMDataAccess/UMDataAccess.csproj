@@ -50,6 +50,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="EntityConfigurationUser.cs" />
+    <Compile Include="EntityConfigurationRole.cs" />
+    <Compile Include="EntityConfigurationUserRole.cs" />
+    <Compile Include="EntityConfigurationUserToken.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\IUserRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
