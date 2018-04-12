@@ -188,6 +188,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="log4net.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -201,10 +202,12 @@
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BookController.cs" />
-    <Compile Include="JwtAuthExtensions\CustomJwtFormat.cs" />
+    <Compile Include="JwtAuthExtensions\MyJwtFormat.cs" />
+    <Compile Include="JwtAuthExtensions\MyJwtBearerAuthenticationOptions.cs" />
+    <Compile Include="JwtAuthExtensions\MyOAuthAuthorizationServerOptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="JwtAuthExtensions\CustomOAuthProvider.cs" />
+    <Compile Include="JwtAuthExtensions\MyOAuthProvider.cs" />
     <Compile Include="Startup\DI.cs" />
     <Compile Include="Startup\Log4Net.cs" />
     <Compile Include="Startup\OnAuth.cs" />

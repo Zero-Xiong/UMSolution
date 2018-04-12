@@ -1,12 +1,13 @@
 ﻿using Autofac;
 using Microsoft.Owin.Security.OAuth;
 using System.Configuration;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using UMServices;
 
 namespace UMWebApi
 {
-    internal class CustomOAuthProvider : OAuthAuthorizationServerProvider
+    public class MyOAuthProvider : OAuthAuthorizationServerProvider
     {
         //private readonly IComponentContext _context;
         //public CustomOAuthProvider(IComponentContext context)
@@ -17,6 +18,8 @@ namespace UMWebApi
         public override Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
         {
             string clientid, clientsecret;
+            var username = context.Parameters["username"];
+            var password = context.Parameters["password"];
 
             if (!context.TryGetBasicCredentials(out clientid, out clientsecret) ||
                 context.TryGetFormCredentials(out clientid, out clientsecret))
@@ -50,14 +53,25 @@ namespace UMWebApi
         public override Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
             var password = context.Password;
+            var username = context.UserName;
 
-            var userName = context.UserName;
+            var identity = new ClaimsIdentity("otc");
+
+            identity.AddClaim(new Claim("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name", username));
+            identity.AddClaim(new Claim("http://schemas.microsoft.com/ws/2008/06/identity/claims/role", "user"));
 
             var scope = Autofac.Integration.Owin.OwinContextExtensions.GetAutofacLifetimeScope(context.OwinContext);
             var service = scope.Resolve<IUserService>();
 
-            var user = service.FindUser(userName, password);
+            var user = service.FindUser(username, password);
 
+            if (user != null)
+                context.Validated(identity);
+            else
+            {
+                context.SetError("invalid_grant", "username or password is wrong.");
+                context.Rejected();
+            }
 
             return Task.FromResult(0);
         }
