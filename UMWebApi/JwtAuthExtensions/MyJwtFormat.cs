@@ -1,4 +1,5 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using log4net;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.Owin.Security;
 using System;
 using System.IdentityModel.Tokens.Jwt;
@@ -11,7 +12,7 @@ namespace UMWebApi
         private readonly string _audience;
         private readonly TimeSpan _expiration;
         private readonly byte[] _key;
-
+        private readonly ILog log = LogManager.GetLogger(typeof(MyJwtFormat));
 
         public MyJwtFormat(string issuer, string audience, byte[] key, TimeSpan expiration)
         {
@@ -34,6 +35,8 @@ namespace UMWebApi
 
         public string Protect(AuthenticationTicket data)
         {
+            log.Debug($"Protect {data.Identity.Name}");
+
             if (data == null) throw new ArgumentNullException(nameof(data));
 
             //var key = Convert.FromBase64String("UHxNtYMRYwvfpO1dS5pWLKL0M2DgOj40EbN4SoBWgfc");

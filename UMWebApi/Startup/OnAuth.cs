@@ -18,8 +18,6 @@ namespace UMWebApi
 
             byte[] key = Encoding.UTF8.GetBytes(secret);
 
-
-
             app.UseOAuthAuthorizationServer(new MyOAuthAuthorizationServerOptions(tokenpath, expiration, issuer, audience, key));
 
             app.UseJwtBearerAuthentication(new MyJwtBearerAuthenticationOptions(issuer, audience, key));

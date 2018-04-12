@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.Owin.Logging;
 using Owin;
 
 namespace UMWebApi
@@ -7,8 +8,14 @@ namespace UMWebApi
     {
         Startup ConfigStartup(IAppBuilder app)
         {
+            var log = app.CreateLogger<Startup>();
+            log.WriteInformation("Webapi is running.");
 
             InitAutoMapper();
+
+
+            log.WriteInformation("Webapi is initialized.");
+
             return this;
         }
 
